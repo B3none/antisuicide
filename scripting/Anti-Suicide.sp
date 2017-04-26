@@ -34,6 +34,12 @@ public Action Suicide(int client, const char[] command, int args)
 				PrintToChat(i, "%s We all love you %s, your life must have some value!", TAG_MESSAGE, name);
 				b_CanAnnounce[i] = false;
 			}
+			/* I am well aware that this is flawed logic lmao
+			* Explanation of flaw for future reference:
+			*  Client types "kill" (prints to others && himself)
+			*  Another client types kill (prints to others who have b_CanAnnounce true...)
+			*  Not the initial client who typed kill because his is false for 60 seconds.
+			*/
 			
 			else
 			{
